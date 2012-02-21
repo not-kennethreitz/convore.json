@@ -1,0 +1,1 @@
+[{"user_id": 20656, "stars": [], "topic_id": 41077, "date_created": 1309725982.443135, "message": "django-social-auth 0.4.0 is out and it's not backward compatible, you need to update your URLs references adding socialauth_ prefix to any reference to sociaul_auth URLs names.", "group_id": 5196, "id": 1554026}]

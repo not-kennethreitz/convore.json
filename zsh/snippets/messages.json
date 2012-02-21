@@ -1,0 +1,1 @@
+[{"user_id": 16254, "stars": [], "topic_id": 17005, "date_created": 1301830569.5415671, "message": "To have stderr colored in red: exec 2>>(while read line; do print '\\e[91m'${(q)line}'\\e[0m' > /dev/tty; print -n $'\\0'; done &)", "group_id": 5172, "id": 514035}]

@@ -1,0 +1,1 @@
+[{"user_id": 18775, "stars": [], "topic_id": 11723, "date_created": 1299686881.3226471, "message": "Basically the testing suite that WinDev provides is good, but it only allows you to do functional, unit and integration tests. You cannot write a test for an element that does not exists. And you can't load a database for testing easily.", "group_id": 5817, "id": 306501}]

@@ -1,0 +1,1 @@
+[{"user_id": 8558, "stars": [], "topic_id": 11750, "date_created": 1299692404.602273, "message": "I'm trying to build Python 3.2 for Ubuntu Lucid from the Debian/Ubuntu sources (from Natty), but the build breaks when the python3.2-dbg package is being build. I see no obvious way to NOT having that package built. Anyone?", "group_id": 292, "id": 307070}]

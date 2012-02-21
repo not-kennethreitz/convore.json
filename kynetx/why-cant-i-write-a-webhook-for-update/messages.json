@@ -1,0 +1,1 @@
+[{"user_id": 30462, "stars": [], "topic_id": 45354, "date_created": 1316092019.6874559, "message": "I wrote 'select when webhook update' in my rule, but when I call it the rule never fires. If I change it to 'select when webhook nyan_cat' it works just fine. Is 'update' somehow reserved?", "group_id": 236, "id": 2133611}]

@@ -1,0 +1,1 @@
+[{"user_id": 39685, "stars": [], "topic_id": 44656, "date_created": 1314688867.8609121, "message": "Just switched the 'confirm_resolve_err' setting to false, and I have to say that I definitely prefer it this way. My opinion is that we should mimic Airbrake, and set this to false by default. Any objections?", "group_id": 11345, "id": 2001493}]

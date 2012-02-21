@@ -1,0 +1,1 @@
+[{"user_id": 6541, "stars": [], "topic_id": 34208, "date_created": 1304811760.6484799, "message": "    * Support for php 5.2.*\n    * Set the php version to use from app preferences\n    * Add default config for wordpress sites\n    * Runs MNPP from console with php52 or php53", "group_id": 2228, "id": 954175}]

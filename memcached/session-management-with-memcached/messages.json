@@ -1,0 +1,1 @@
+[{"user_id": 19826, "stars": [], "topic_id": 14692, "date_created": 1300889120.8267009, "message": "Been researching using memcached as a session management for my nodejs app. I came across this http://dormando.livejournal.com/ I was wondering what everyone things. On smaller apps with less users is it really worthwhile having the db backend?", "group_id": 5018, "id": 417558}]

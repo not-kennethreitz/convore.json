@@ -1,0 +1,1 @@
+[{"user_id": 1556, "stars": [], "topic_id": 3722, "date_created": 1297357230.453757, "message": "There appears to be a bug with auto embedding images that have \".\" in the filename, or \"-\" haven't tested further than trying to embed a OSX screenshot (sample: Screen shot 2011-02-10 at 8.59.31 AM.png\" and having it not work until I renamed it.", "group_id": 88, "id": 71424}]
