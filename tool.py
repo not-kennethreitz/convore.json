@@ -13,6 +13,13 @@ def mkdir_p(filename):
     except OSError:
         pass
 
+def get_users():
+    with open('users.json') as f:
+        users = json.loads(f.read())['users']
+
+    users = sorted(users, key=lambda k: k['date_joined'])
+    return users
+
 def get_groups():
     with open('groups.json') as f:
         groups = json.loads(f.read())
@@ -30,18 +37,21 @@ def get_topics(group):
 
     return sorted(topics, key=lambda k: k['date_created'])
 
-def get_messages(group, topic):
+def get_messages(group, topic, users):
     with open('groups/{}/{}/messages.json'.format(group, topic)) as f:
         messages = json.loads(f.read())
 
     messages = sorted(messages, key=lambda k: k['date_created'])
 
     for i, message in enumerate(messages):
-        messages[i]['date_created'] = datetime.fromtimestamp(message['date_created']).strftime('%c')
+        messages[i]['date_created'] = datetime.fromtimestamp(message['date_created']).strftime('%H:%M %b %d %Y')
+        messages[i]['user'] = users[message['user_id']]
 
     return messages
 
 GROUP_TEMPLATE = """
+<link rel="stylesheet" href="tufte.css"/>
+
 <h1>Group: <a href="/groups/{{ slug }}.html">{{ name }}</a></h1>
 
 <h2>Topics</h2>
@@ -66,7 +76,10 @@ def render_group(group, topics):
         f.write(html)
 
 TOPIC_TEMPLATE = """
+<link rel="stylesheet" href="tufte.css"/>
+
 <h1>Topic:
+<a href="/groups.html">Groups</a> /
 <a href="/groups/{{ group.slug }}.html">{{ group.name }}</a> /
 <a href="/groups/{{ group.slug }}/{{ slug }}.html">{{ name }}</a>
 </h1>
@@ -76,8 +89,13 @@ TOPIC_TEMPLATE = """
 <ul>
 {% for message in messages %}
   <li>
-    <p>{{ message.date_created }} by {{ message.user_id }} ({{ message.stars|length }} stars)</p>
-    <p>{{ message.message }}</p>
+    <p><a href="/users/{{ message.user.username }}">{{ message.user.username }}</a> at {{ message.date_created }}
+
+    {% if message.stars %}
+        ({{ message.stars|length }} stars)
+    {% endif %}
+    </p>
+    {{ message.message }}
   </li>
 {% endfor%}
 </ul>
@@ -97,6 +115,12 @@ def render_topic(group, topic, messages):
         f.write(html)
 
 
+users = get_users()
+user_lookup = {}
+for user in users:
+    user_lookup[user['id']] = user
+
+
 for group in get_groups():
 
     topics = get_topics(group['slug'])
@@ -104,7 +128,9 @@ for group in get_groups():
     render_group(group, topics)
 
     for topic in topics:
-        messages = get_messages(group['slug'], topic['slug'])
+        messages = get_messages(group['slug'], topic['slug'], users=user_lookup)
+
+        # for message
         # print messages[1]
         render_topic(group, topic, messages)
 
